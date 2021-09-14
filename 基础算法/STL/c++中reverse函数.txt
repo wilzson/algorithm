@@ -1,0 +1,10 @@
+reverse函数功能是逆序（或反转），多用于字符串、数组、容器。头文件是#include <algorithm>
+
+reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数无返回值
+
+eg. 
+
+string str="hello world , hi";
+reverse(str.begin(),str.end());//str结果为 ih , dlrow olleh
+vector<int> v = {5,4,3,2,1};
+reverse(v.begin(),v.end());//容器v的值变为1,2,3,4,5

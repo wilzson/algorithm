@@ -1,0 +1,26 @@
+在algorithm头文件中
+min_element 和 max_element
+
+头文件：#include<algorithm>
+
+作用：返回容器中最小值和最大值的指针。max_element(first,end,cmp);其中cmp为可选择参数!
+
+例1
+
+#include<iostream>
+#include<algorithm>
+using namespace std;
+ 
+bool cmp(int a,int b)
+{
+	return a<b;
+}
+int main()
+{
+	int num[]={2,3,1,6,4,5};
+	cout<<"最小值是 "<<*min_element(num,num+6)<<endl;
+	cout<<"最大值是 "<<*max_element(num,num+6)<<endl;
+	cout<<"最小值是 "<<*min_element(num,num+6,cmp)<<endl;
+	cout<<"最大值是 "<<*max_element(num,num+6,cmp)<<endl;
+	return 0; 
+}

@@ -1,0 +1,34 @@
+c++中string里字符串可以用字符栈来进行增删补
+string s;
+s.pop_back();弹出栈顶
+s.push_back();压入元素
+s.top_back();
+s.at(i) 获取字符串中第i个位置的字符
+
+class Solution {
+public:
+    bool backspaceCompare(string S, string T) {
+        string str1, str2;
+        for(int i=0;i<S.size();i++)  //遍历字符串S，将结果保存至str1
+        {
+            if(S[i] == '#')
+            {
+                if(!str1.empty())
+                    str1.pop_back();  //移除末尾字符
+            }
+            else
+                str1.push_back(S[i]);  //向末尾添加字符ch
+        }
+        for(int i=0;i<T.size();i++)  //遍历字符串T，将结果保存至str2
+        {
+            if(T[i] == '#')
+            {
+                if(!str2.empty())
+                    str2.pop_back();  //移除末尾字符
+            }
+            else
+                str2.push_back(T[i]);  //向末尾添加字符ch
+        }
+        return str1 == str2;  //返回str1和str2是否相等
+    }
+};

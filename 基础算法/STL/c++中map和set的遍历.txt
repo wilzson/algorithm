@@ -1,0 +1,36 @@
+c++中哈希表
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    map<int,string> namemap;
+    set<string> nameset;
+    namemap.insert(pair<int,string>(1,"world"));
+    namemap.insert(pair<int,string>(2,"goodboy"));
+    // findmap.insert(1,"hello");
+    // findmap.insert(2,"world");
+    map<int,string>::iterator it=namemap.begin();//重点是迭代器
+    set<string>::iterator its=nameset.begin();
+    while(it!=namemap.end()){
+        cout<<it->first<<" "<<it->second<<endl;//输出的时候记得要it++
+        it++;
+    }
+    while (its!=nameset.end())
+    {
+        cout<<*its<<endl;
+        its++;
+    }
+    return 0;
+}
+
+c11中 可以使用foreach来循环
+for(auto x:m)
+   cout<<x.first<<x.second;
+
+哈希表
+使用count，返回的是被查找元素的个数。如果有，返回1；否则，返回0。
+注意，map、set中不存在相同元素，所以被查找元素存在的话就返回值只能是1，反之返回0。
+使用find，返回的是被查找元素的位置，没有则返回map.end()。
+
+删除操作：
+erase函数操作
+table.erase(key)，返回值为1或0

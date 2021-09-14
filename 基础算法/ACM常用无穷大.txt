@@ -1,0 +1,2 @@
+ACM中常用的无穷大常量——0x3f3f3f3f
+常用为INT_MAX,或者为INT_MIN

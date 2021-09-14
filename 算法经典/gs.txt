@@ -1,0 +1,93 @@
+1.
+广搜通常用于求图论的最短路径
+思路：
+1.设置一个二维数组用来存放迷宫的路径
+2.用一个结构体来表示一个节点：包括x，y坐标、步长值，(另外可以设置ch来表示行动的方向)
+3.在bfs函数中，设置一个队列用来存放节点，首先先将起点放进队列中，标记迷宫已经走过
+在while循环中(!Q.empty())，取出队列首节点，弹出，
+判断是否达到终点，是则退出循环
+接着将该节点的四个方向都放进队列中
+用新的节点用来存放四边的节点
+判断如果符合迷宫限制
+节点步数加1
+记录路径
+
+#include<iostream>
+#include<algorithm>
+#include<stdio.h>
+#include<queue>
+using namespace std;
+int n,m;
+int mg[501][501];
+int dir[4][2]={-1,0,1,0,0,-1,0,1};
+struct node
+{
+	int x,y,c;
+	char ch;
+}jl[501][501];
+int bfs()
+{
+	int i;
+	queue<struct node> Q;
+	struct node s;
+	struct node t;
+	s.x=s.y=s.c=0;
+	mg[s.x][s.y]=1;
+	Q.push(s);
+	while (!Q.empty())
+	{
+	    s=Q.front();
+		Q.pop();
+	if (s.x==n-1&&s.y==m-1)
+	{
+		return s.c;
+	}
+        for(i=0;i<4;i++)
+        {
+//新的节点用来存放四边的节点
+        	t.x=s.x+dir[i][0];
+        	t.y=s.y+dir[i][1];
+//判断如果符合迷宫限制
+        	if (t.x>=0&&t.x<n&&t.y>=0&&t.y<m&&mg[t.x][t.y]==0)
+        	{
+//节点步数加1
+        		t.c=s.c+1;
+//记录路径
+        		jl[t.x][t.y].x=s.x;//jl为结构体数组
+        		jl[t.x][t.y].y=s.y;
+        		if (i==0)//i为0时往上
+        		  jl[t.x][t.y].ch='U';
+        		else if (i==1)
+        		  jl[t.x][t.y].ch='D';
+        		else if (i==2)
+        		  jl[t.x][t.y].ch='L';
+        		else
+        		  jl[t.x][t.y].ch='R';
+        		mg[t.x][t.y]=1;
+        		Q.push(t);
+			}
+		}
+	}
+}
+void prin(int xx,int yy)
+{
+	if (xx==0&&yy==0)
+	 {
+	 	return ;
+	 }
+	 prin(jl[xx][yy].x,jl[xx][yy].y);
+	 printf("%c",jl[xx][yy].ch);
+}
+int main()
+{
+	std::ios::sync_with_stdio(false);
+	int i,j,t;
+	scanf("%d%d",&n,&m);
+	for (i=0;i<n;i++)
+	for (j=0;j<m;j++)
+	 scanf("%1d",&mg[i][j]);//接受一个数字
+	t=bfs();
+	 printf("%d\n",t);
+	prin(n-1,m-1);
+	return 0;
+}

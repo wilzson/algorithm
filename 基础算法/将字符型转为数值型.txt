@@ -1,0 +1,6 @@
+将字符减去‘0’，例如 char c='9';int result='9'-'0';则result=9就是所要的结果了~~ 
+string类型的也是
+for(int i=0;a[i]!='/0';i++)
+{
+reuslt=a[i]-'0';
+}

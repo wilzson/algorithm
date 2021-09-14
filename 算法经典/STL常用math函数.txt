@@ -1,0 +1,6 @@
+1.fabs()-取绝对值
+	a=fabs(a)
+2.floor() 向下取整/ ceil 向上取整
+3.pow(double a,double b)  返回a的b次方，默认为2
+
+sort（a,a+b.length(),bmp）

@@ -1,0 +1,6 @@
+1、algorithm中的find()函数
+返回值是目标元素的下标，找不到时返回值为迭代器结尾
+	string = "hello";
+	find(s.begin(), s.end(), 'o') == s.end()
+
+2、string中与find相关函数

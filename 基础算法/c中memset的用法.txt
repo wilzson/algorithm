@@ -1,0 +1,7 @@
+C语言的内容
+memset用于初始化一个数组
+memset(void指针，初始值，字节长度);
+
+
+memset(a,0,100);
+memset(a,0,sizeof(a));

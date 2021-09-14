@@ -1,0 +1,11 @@
+sort函数用法：
+第一个参数a为数组名，默认从首地址开始，第二个参数为要结束的地址，第三个参数是自己定义，实现排序的顺序
+sort(a,a+10,cmp)
+sort(num.begin(),num.end(),cmp);
+bool cmp(int a,int b)
+{
+   return a>b;
+}
+第三个参数没有时，默认是升序
+
+sort(a,a+10,cmp)

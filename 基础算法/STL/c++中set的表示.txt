@@ -1,0 +1,53 @@
+set有两个特点：有序，不重复
+
+int main(){
+    set<int> myset;
+    myset.insert(2);
+    myset.insert(3);
+    myset.insert(1);
+    myset.insert(4);
+    myset.insert(5);
+    set<int>::iterator iter = myset.begin();
+    while (iter!= myset.end())
+    {
+        cout<<*iter;
+        iter++;
+    }
+    
+    return 0;
+}
+
+如果不要求有序的话，可以用unordered_set（）来提高时间复杂度
+unordered_set底层是哈希表，时间消耗较少
+unordered_set中的count(x)返回1或0
+用于表示集合中是否存在对应的值
+
+set的增删改查
+set<int> numSet;
+    for(int i=0;i<6;i++)
+    {
+        //插入
+        numSet.insert(numList[i]);
+    }
+    //2.遍历set
+    for(set<int>::iterator it=numSet.begin() ;it!=numSet.end();it++)
+    {
+        cout<<*it<<" occurs "<<endl;
+    }
+    //3.set find useage
+
+    int findNum=1;
+    if(numSet.find(findNum)!=numSet.end())
+    {
+        cout<<"find num "<<findNum<<" in set"<<endl;
+    }else{
+        cout<<"do not find num in set"<<findNum<<endl;
+    }
+    //set delete useage
+    int eraseReturn=numSet.erase(1);
+    if(1==eraseReturn)
+    {
+          cout<<"erase num 1 success"<<endl;
+    }else{
+        cout<<"erase failed,erase num not in set"<<endl;
+    }
